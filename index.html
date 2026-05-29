@@ -331,6 +331,96 @@
       grid-template-rows: 1fr;
       opacity: 1;
     }
+    /* ── Discord Server Slots (OreUI Minecraft inventory style) ── */
+    #discord-server-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      padding: 4px 8px 8px;
+    }
+
+    .discord-slot {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background-color: #3A3B3C;
+      border-top: 2px solid #58585A;
+      border-left: 2px solid #58585A;
+      border-right: 2px solid #1D1D1E;
+      border-bottom: 2px solid #1D1D1E;
+      box-shadow: inset 2px 2px 0 rgba(255,255,255,0.06), inset -2px -2px 0 rgba(0,0,0,0.3);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.1s, filter 0.1s;
+      image-rendering: pixelated;
+    }
+
+    .discord-slot:hover {
+      background-color: #575859;
+      border-top-color: #8B8C8F;
+      border-left-color: #8B8C8F;
+      filter: brightness(1.1);
+    }
+
+    .discord-slot:active {
+      background-color: #2E2F30;
+      border-top-color: #1D1D1E;
+      border-left-color: #1D1D1E;
+      border-right-color: #58585A;
+      border-bottom-color: #58585A;
+      filter: brightness(0.85);
+    }
+
+    .discord-slot img {
+      width: 40px;
+      height: 40px;
+      border-radius: 3px;
+      object-fit: cover;
+      image-rendering: auto;
+      pointer-events: none;
+    }
+
+    /* Tooltip */
+    .discord-slot .ds-tooltip {
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #1F1F1F;
+      border: 1px solid #5A2D6E;
+      box-shadow: 2px 2px 0 #000, inset 1px 1px 0 rgba(255,255,255,0.05);
+      color: #FFFFFF;
+      font-family: 'Minecraft Seven', sans-serif;
+      font-size: 10px;
+      white-space: nowrap;
+      padding: 4px 7px;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.12s;
+      z-index: 20;
+    }
+
+    .discord-slot .ds-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #5A2D6E;
+    }
+
+    .discord-slot:hover .ds-tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+
   </style>
 </head>
 
@@ -547,28 +637,28 @@
   el = document.getElementById('i18n-kontak');        if (el) el.textContent = T.kontak;
   el = document.getElementById('i18n-discordServer'); if (el) el.textContent = T.discordServer;
 
-  // discord servers
+  // discord servers – OreUI inventory slot style
   var serverList = document.getElementById('discord-server-list');
   if (serverList && CONFIG.discordServers) {
     CONFIG.discordServers.forEach(function(s) {
-      var card = document.createElement('a');
-      card.href = s.url;
-      card.target = '_blank';
-      card.onclick = function(){ playSound('click'); };
-      card.title = s.name;
-      card.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px;border-radius:4px;cursor:pointer;text-decoration:none;transition:background 0.15s;width:72px;';
-      card.addEventListener('mouseenter', function(){ this.style.background='rgba(255,255,255,0.08)'; });
-      card.addEventListener('mouseleave', function(){ this.style.background='transparent'; });
+      var slot = document.createElement('a');
+      slot.href = s.url;
+      slot.target = '_blank';
+      slot.className = 'discord-slot';
+      slot.setAttribute('aria-label', s.name);
+      slot.onclick = function(){ playSound('click'); };
+
       var img = document.createElement('img');
       img.src = s.icon;
       img.alt = s.name;
-      img.style.cssText = 'width:40px;height:40px;border-radius:50%;object-fit:cover;image-rendering:auto;';
-      var label = document.createElement('span');
-      label.textContent = s.name;
-      label.style.cssText = "font-family:'NotoSans Bold',sans-serif;font-size:9px;color:#D0D1D4;text-align:center;line-height:1.3;word-break:break-word;";
-      card.appendChild(img);
-      card.appendChild(label);
-      serverList.appendChild(card);
+
+      var tooltip = document.createElement('span');
+      tooltip.className = 'ds-tooltip';
+      tooltip.textContent = s.name;
+
+      slot.appendChild(img);
+      slot.appendChild(tooltip);
+      serverList.appendChild(slot);
     });
   }
 
