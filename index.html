@@ -407,6 +407,14 @@
             </div>
           </div>
 
+          <!-- Discord Servers -->
+          <div class="main main_block">
+            <div class="main_block_content" style="width:100%">
+              <div style="font-family:'Minecraft Seven',sans-serif; font-size:18px; margin: 4px 0 12px; text-align:center;"><span id="i18n-discordServer">Temukan Aku di Discord Server</span></div>
+              <div id="discord-server-list" style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center;"></div>
+            </div>
+          </div>
+
           <!-- Kontak -->
           <div class="main main_block">
             <div class="main_block_content" style="text-align:center; width:100%">
@@ -534,9 +542,35 @@
   document.getElementById('drawer-title').textContent     = T.sosialMedia;
   document.getElementById('lightbox-loading').textContent = T.memuatGambar;
   var el;
-  el = document.getElementById('i18n-karya');  if (el) el.textContent = T.karya;
-  el = document.getElementById('i18n-skill');  if (el) el.textContent = T.skill;
-  el = document.getElementById('i18n-kontak'); if (el) el.textContent = T.kontak;
+  el = document.getElementById('i18n-karya');         if (el) el.textContent = T.karya;
+  el = document.getElementById('i18n-skill');         if (el) el.textContent = T.skill;
+  el = document.getElementById('i18n-kontak');        if (el) el.textContent = T.kontak;
+  el = document.getElementById('i18n-discordServer'); if (el) el.textContent = T.discordServer;
+
+  // discord servers
+  var serverList = document.getElementById('discord-server-list');
+  if (serverList && CONFIG.discordServers) {
+    CONFIG.discordServers.forEach(function(s) {
+      var card = document.createElement('a');
+      card.href = s.url;
+      card.target = '_blank';
+      card.onclick = function(){ playSound('click'); };
+      card.title = s.name;
+      card.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px;border-radius:4px;cursor:pointer;text-decoration:none;transition:background 0.15s;width:72px;';
+      card.addEventListener('mouseenter', function(){ this.style.background='rgba(255,255,255,0.08)'; });
+      card.addEventListener('mouseleave', function(){ this.style.background='transparent'; });
+      var img = document.createElement('img');
+      img.src = s.icon;
+      img.alt = s.name;
+      img.style.cssText = 'width:40px;height:40px;border-radius:50%;object-fit:cover;image-rendering:auto;';
+      var label = document.createElement('span');
+      label.textContent = s.name;
+      label.style.cssText = "font-family:'NotoSans Bold',sans-serif;font-size:9px;color:#D0D1D4;text-align:center;line-height:1.3;word-break:break-word;";
+      card.appendChild(img);
+      card.appendChild(label);
+      serverList.appendChild(card);
+    });
+  }
 
   // karya
   const karyaList = document.getElementById('karya-list');

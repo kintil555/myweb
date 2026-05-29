@@ -65,6 +65,35 @@ const CONFIG = {
     "Thumbnail Design",
   ],
 
+  // ── DISCORD SERVERS ──────────────────────
+  discordServers: [
+    {
+      name: "Sparkskye",
+      url: "https://discord.gg/2s6H7T9weg",
+      icon: "https://cdn.discordapp.com/icons/1093262218587537468/a_9f03197d9a671f8b32e2ad1794c93c10.webp?size=100&quality=lossless"
+    },
+    {
+      name: "Ender Sanctum",
+      url: "https://discord.gg/ender-sanctum-901068441581146123",
+      icon: "https://cdn.discordapp.com/icons/901068441581146123/1693a5c3926d5ffd0e35081c97a96c32.webp?size=100&quality=lossless"
+    },
+    {
+      name: "Croco Team",
+      url: "https://discord.gg/UueVaUqt3T",
+      icon: "https://cdn.discordapp.com/icons/1153349778638381066/27dab69a8c57263146b4bd2c1af37d1b.webp?size=100&quality=lossless"
+    },
+    {
+      name: "Creator Coaster",
+      url: "https://discord.gg/mwz89rSW",
+      icon: "https://cdn.discordapp.com/icons/1075932452842909806/a_66a39576bc63a3f510a29cd884fffacb.webp?size=100&quality=lossless"
+    },
+    {
+      name: "MineImator",
+      url: "https://discord.com/invite/GxFp6xv",
+      icon: "https://cdn.discordapp.com/icons/272759689589293057/7091e8403dc58fdeef7471badabbb17b.webp?size=100&quality=lossless"
+    },
+  ],
+
   // ── KONTAK ───────────────────────────────
   discord: "https://discord.com/users/voxxel_22",
 
@@ -82,21 +111,23 @@ const CONFIG = {
 const TRANSLATIONS = {
 
   id: {
-    karya:         "Karya",
-    skill:         "Skill",
-    kontak:        "Kontak",
-    sosialMedia:   "Sosial Media",
-    view:          "Lihat",
-    memuatGambar:  "Memuat gambar...",
+    karya:          "Karya",
+    skill:          "Skill",
+    kontak:         "Kontak",
+    sosialMedia:    "Sosial Media",
+    view:           "Lihat",
+    memuatGambar:   "Memuat gambar...",
+    discordServer:  "Temukan Aku di Discord Server",
   },
 
   en: {
-    karya:         "Works",
-    skill:         "Skills",
-    kontak:        "Contact",
-    sosialMedia:   "Social Media",
-    view:          "View",
-    memuatGambar:  "Loading image...",
+    karya:          "Works",
+    skill:          "Skills",
+    kontak:         "Contact",
+    sosialMedia:    "Social Media",
+    view:           "View",
+    memuatGambar:   "Loading image...",
+    discordServer:  "Find Me on Discord Servers",
   },
 
   ja: {
