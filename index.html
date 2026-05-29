@@ -497,7 +497,7 @@ const CONFIG = {
   CONFIG.karya.forEach(function(k, i) {
     karyaInner.innerHTML +=
       '<div class="karya-item">' +
-        '<div class="karya-img-wrap" onclick="playSound('button'); openLightbox(\'' + k.hd + '\', \'' + k.judul + '\')">' +
+        '<div class="karya-img-wrap" onclick="playSound(&quot;button&quot;); openLightbox(&quot;' + k.hd + '&quot;, &quot;' + k.judul + '&quot;)">' +
           '<img src="' + k.preview + '" alt="' + k.judul + '">' +
           '<div class="karya-overlay">' +
             '<button class="btn green_btn extra_small_btn">View</button>' +
