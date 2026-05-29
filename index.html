@@ -7,7 +7,6 @@
   <!-- preload font paling penting aja -->
   <link rel="preload" href="fonts/Minecraft-Seven.otf" as="font" type="font/otf" crossorigin>
   <link rel="preload" href="fonts/NotoSans-Bold-subset.ttf" as="font" type="font/truetype" crossorigin>
-  <link href="stylesheet/loading_mask.css" rel="stylesheet">
   <link href="stylesheet/public_style.css" rel="stylesheet">
   <link href="stylesheet/oreui.css" rel="stylesheet">
   <style>
@@ -332,16 +331,6 @@
   </style>
 </head>
 
-<!-- Loading mask -->
-<div class="loading_mask" id="loading_mask">
-  <div>
-    <div class="spinner"><img alt="" id="spinner_img" src="Loading_white.gif"/></div>
-    <div class="spinner">
-      <div class="spinner"><span class="spinner_text">Memuat portfolio...</span></div>
-    </div>
-  </div>
-</div>
-
 <body>
 
 <!-- Medsos drawer overlay -->
@@ -571,26 +560,6 @@ const CONFIG = {
         document.querySelectorAll('.karya-img-wrap').forEach(el => el.classList.remove('pressed'));
       }
     }, 900);
-  });
-
-  // loading mask — hide saat DOM siap (DOMContentLoaded), bukan tunggu semua resource
-  // sama dengan pendekatan OreUI loading.js
-  function hide_mask() {
-    const mask = document.getElementById('loading_mask');
-    if (!mask || mask.style.display === 'none') return;
-    mask.style.opacity = '0';
-    setTimeout(function() { mask.style.display = 'none'; }, 300);
-  }
-
-  // failsafe: paksa hilang setelah 3 detik kalau DOMContentLoaded lambat
-  var _maskCount = 3;
-  var _maskInterval = setInterval(function() {
-    if (--_maskCount <= 0) { clearInterval(_maskInterval); hide_mask(); }
-  }, 1000);
-
-  document.addEventListener('DOMContentLoaded', function() {
-    clearInterval(_maskInterval);
-    hide_mask();
   });
 
   // lightbox
