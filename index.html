@@ -397,6 +397,15 @@
       text-align: center;
       line-height: 1.3;
       word-break: break-word;
+      text-decoration: none;
+    }
+
+    /* override drawer-links a yang bleeding ke discord slot */
+    #discord-server-list a.discord-slot {
+      border-top: none;
+      border-bottom: none;
+      box-shadow: none;
+      padding: 0;
     }
 
   </style>
@@ -494,8 +503,8 @@
           </div>
 
           <div class="footer_info" id="footer"></div>
-    <div class="footer_info" style="font-size:11px; color:rgba(255,255,255,0.35); height:40px; border-top:none; flex-direction:column; gap:2px;">
-      <span>UI Style: <a href="https://github.com/Spectrollay-OreUI/OreUI" target="_blank" onclick="playSound('click')" style="color:rgba(255,255,255,0.5);">OreUI</a> by Spectrollay</span>
+    <div class="footer_info" style="font-size:11px; color:#B060FF; height:40px; border-top:none; flex-direction:column; gap:2px;">
+      <span>UI Style: <a href="https://github.com/Spectrollay-OreUI/OreUI" target="_blank" onclick="playSound('click')" style="color:#CC88FF; text-decoration:underline;">OreUI</a> by Spectrollay</span>
       <span>MIT Licensed</span>
     </div>
 
