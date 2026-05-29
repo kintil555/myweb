@@ -54,7 +54,7 @@
 
 @font-face {
     font-family: 'NotoSans Bold';
-    src: url("/fonts/NotoSans-Bold.ttf") format('truetype');
+    src: url("/fonts/NotoSans-Bold-subset.ttf") format('truetype');
 }
 
 @font-face {

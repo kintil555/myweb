@@ -4,10 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio | Voxel/Clion</title>
+  <!-- preload font paling penting aja -->
+  <link rel="preload" href="fonts/Minecraft-Seven.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="fonts/NotoSans-Bold-subset.ttf" as="font" type="font/truetype" crossorigin>
   <link href="stylesheet/loading_mask.css" rel="stylesheet">
   <link href="stylesheet/public_style.css" rel="stylesheet">
   <link href="stylesheet/oreui.css" rel="stylesheet">
   <style>
+    /* font-display swap biar teks muncul duluan sebelum font kelar download */
+    @font-face { font-family: "Minecraft Seven"; src: url("fonts/Minecraft-Seven.otf"); font-display: swap; }
+    @font-face { font-family: "Minecraft Ten"; src: url("fonts/Minecraft-Ten.otf"); font-display: swap; }
+    @font-face { font-family: "NotoSans Bold"; src: url("fonts/NotoSans-Bold-subset.ttf"); font-display: swap; }
+
     .karya-img-wrap {
       position: relative;
       overflow: hidden;
