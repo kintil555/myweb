@@ -578,14 +578,12 @@ const CONFIG = {
   function hide_mask() {
     const mask = document.getElementById('loading_mask');
     if (!mask || mask.style.display === 'none') return;
-    setTimeout(function() {
-      mask.style.opacity = '0';
-      setTimeout(function() { mask.style.display = 'none'; }, 800);
-    }, 500);
+    mask.style.opacity = '0';
+    setTimeout(function() { mask.style.display = 'none'; }, 300);
   }
 
-  // failsafe: paksa hilang setelah 6 detik kalau DOMContentLoaded lambat
-  var _maskCount = 6;
+  // failsafe: paksa hilang setelah 3 detik kalau DOMContentLoaded lambat
+  var _maskCount = 3;
   var _maskInterval = setInterval(function() {
     if (--_maskCount <= 0) { clearInterval(_maskInterval); hide_mask(); }
   }, 1000);
