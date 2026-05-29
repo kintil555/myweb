@@ -513,7 +513,7 @@ const CONFIG = {
       var url = isExternal ? src : ('media/' + src);
       var fname = src.split('/').pop();
       return '<img src="' + url + '" alt="' + fname + '" '
-        + 'style="max-width:100%;max-height:200px;object-fit:contain;flex:1;min-width:0;border:2px solid #5A5B5C;border-bottom-color:#333334;image-rendering:pixelated;" '
+        + 'style="max-width:100%;max-height:200px;object-fit:contain;flex:1;min-width:0;image-rendering:pixelated;" '
         + 'onerror="this.style.outline=\'2px solid #C33636\';this.alt=\'\u26a0 ' + fname + '\'">';
     }
 
