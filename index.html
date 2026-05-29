@@ -450,7 +450,7 @@ const CONFIG = {
 
   // Info utama
   nama: "Voxel / Clion",
-  bio: "halo, ini portfolioku, gw sih masih belajar - belajar gitu. Jadi gimn yah pokoknya kadang gw bikin thumbnail klo lagi niat aja, gw belum buka komis, gamabr gambar yg ku buat cuma buat latihan atau ya sekedar gabut.",
+  bio: "halo, ini portfolioku, gw sih masih belajar - belajar gitu. Jadi gimn yah pokoknya kadang gw bikin thumbnail klo lagi niat aja, gw belum buka komis, gamabr gambar yg ku buat cuma buat latihan atau ya sekedar gabut.\nCek karya gw di [GitHub](https://github.com/kintil555)!",
 
   // Medsos (isi link lengkap, atau kosongkan dengan "")
   medsos: [
@@ -503,7 +503,28 @@ const CONFIG = {
   // isi dari config
   document.getElementById('header-nama').textContent = CONFIG.nama;
   document.getElementById('hero-nama').textContent = CONFIG.nama;
-  document.getElementById('hero-bio').textContent = CONFIG.bio;
+
+  // Mini markdown parser buat bio: heading #/##/###, link [teks](url), newline
+  function parseBioMarkdown(text) {
+    return text
+      .split('\n')
+      .map(function(line) {
+        // Heading ###
+        if (/^### (.+)/.test(line)) return '<div style="font-family:\'Minecraft Seven\',sans-serif;font-size:13px;color:#fff;margin:6px 0 2px;">' + line.replace(/^### /, '') + '</div>';
+        // Heading ##
+        if (/^## (.+)/.test(line)) return '<div style="font-family:\'Minecraft Seven\',sans-serif;font-size:16px;color:#fff;margin:8px 0 2px;">' + line.replace(/^## /, '') + '</div>';
+        // Heading #
+        if (/^# (.+)/.test(line)) return '<div style="font-family:\'Minecraft Seven\',sans-serif;font-size:20px;color:#fff;margin:10px 0 4px;">' + line.replace(/^# /, '') + '</div>';
+        // Inline link [teks](url)
+        line = line.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" onclick="playSound(\'click\')" style="color:#5B9BD5;text-decoration:underline;text-underline-offset:2px;">$1</a>');
+        // Bold **teks**
+        line = line.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        return line ? '<div style="margin:2px 0;">' + line + '</div>' : '<div style="height:8px;"></div>';
+      })
+      .join('');
+  }
+
+  document.getElementById('hero-bio').innerHTML = parseBioMarkdown(CONFIG.bio);
   document.getElementById('footer').innerHTML = '&copy; ' + CONFIG.copyright;
 
   // karya
