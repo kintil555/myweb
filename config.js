@@ -40,7 +40,10 @@ const CONFIG = {
   // ── INFO UTAMA ────────────────────────────
   nama: "Voxel / Clion",
 
-  bio: "# Apa Ini?\nhalo, ini portfolioku, gw sih masih belajar - belajar gitu. Jadi gimn yah pokoknya kadang gw bikin thumbnail klo lagi niat aja, gw belum buka komis, gamabr gambar yg ku buat cuma buat latihan atau ya sekedar gabut.\nbtw gw dulu belajar bikin thumbnail minecarft gitu dari \n[Sparkskye](https://www.youtube.com/@sparkskye) dan [Notsparkskye](https://www.youtube.com/@notsparkskye) \n@[https://yt3.googleusercontent.com/ihLSmDd_g9QbIjsMA0Gkcs3JBQhj32vUIQKOuSljSVbgfRiyGtWZJHqkvXZfi-epotGY1087fQ=s160-c-k-c0x00ffffff-no-rj, https://yt3.googleusercontent.com/vb4k6jpf9XrTTwq2geXRVHtnOt8OQvSMcLGJ-p1sEr3ZV0aOCY-K53JVSRqrLEIaq-cGFCpaiQ=s160-c-k-c0x00ffffff-no-rj]",
+  // ── BIO (dua bahasa, lu isi sendiri teksnya) ──
+  bio_id: "# Apa Ini?\nhalo, ini portfolioku, gw sih masih belajar - belajar gitu. Jadi gimn yah pokoknya kadang gw bikin thumbnail klo lagi niat aja, gw belum buka komis, gamabr gambar yg ku buat cuma buat latihan atau ya sekedar gabut.\nbtw gw dulu belajar bikin thumbnail minecarft gitu dari \n[Sparkskye](https://www.youtube.com/@sparkskye) dan [Notsparkskye](https://www.youtube.com/@notsparkskye) \n@[https://yt3.googleusercontent.com/ihLSmDd_g9QbIjsMA0Gkcs3JBQhj32vUIQKOuSljSVbgfRiyGtWZJHqkvXZfi-epotGY1087fQ=s160-c-k-c0x00ffffff-no-rj, https://yt3.googleusercontent.com/vb4k6jpf9XrTTwq2geXRVHtnOt8OQvSMcLGJ-p1sEr3ZV0aOCY-K53JVSRqrLEIaq-cGFCpaiQ=s160-c-k-c0x00ffffff-no-rj]",
+
+  bio_en: "# What is This?\nhey, this is my portfolio. I'm still learning things.\nI sometimes make thumbnails when I feel like it. No commissions yet — stuff I make is just for practice or when I'm bored.\nI learned Minecraft thumbnail-making from\n[Sparkskye](https://www.youtube.com/@sparkskye) and [Notsparkskye](https://www.youtube.com/@notsparkskye)\n@[https://yt3.googleusercontent.com/ihLSmDd_g9QbIjsMA0Gkcs3JBQhj32vUIQKOuSljSVbgfRiyGtWZJHqkvXZfi-epotGY1087fQ=s160-c-k-c0x00ffffff-no-rj, https://yt3.googleusercontent.com/vb4k6jpf9XrTTwq2geXRVHtnOt8OQvSMcLGJ-p1sEr3ZV0aOCY-K53JVSRqrLEIaq-cGFCpaiQ=s160-c-k-c0x00ffffff-no-rj]",
 
   // ── MEDSOS ───────────────────────────────
   medsos: [
@@ -182,3 +185,8 @@ const TRANSLATIONS = {
 // Deteksi bahasa browser, fallback ke 'id'
 const _lang = (navigator.language || 'id').slice(0, 2).toLowerCase();
 const T = TRANSLATIONS[_lang] || TRANSLATIONS['id'];
+
+// Pilih bio berdasarkan bahasa:
+// - browser Indo  → bio_id
+// - lainnya       → bio_en (default fallback)
+CONFIG.bio = (_lang === 'id') ? CONFIG.bio_id : CONFIG.bio_en;
