@@ -262,6 +262,43 @@
       font-size: 16px;
       position: absolute;
     }
+
+    /* ---- KARYA COLLAPSE ---- */
+    .karya-toggle {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      font-family: "Minecraft Seven", sans-serif;
+      font-size: 18px;
+      justify-content: center;
+      gap: 10px;
+      padding: 4px 0;
+      user-select: none;
+      width: 100%;
+    }
+
+    .karya-toggle:hover { color: #6CC349; }
+
+    .karya-arrow {
+      display: inline-block;
+      font-size: 12px;
+      transition: transform 0.25s ease;
+      color: #6CC349;
+    }
+
+    .karya-arrow.open { transform: rotate(90deg); }
+
+    #karya-list {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    #karya-list.open {
+      max-height: 9999px;
+      opacity: 1;
+    }
   </style>
 </head>
 
@@ -320,7 +357,7 @@
           <!-- Karya -->
           <div class="main main_block">
             <div class="main_block_content" style="width:100%">
-              <div style="font-family:'Minecraft Seven',sans-serif; font-size:18px; margin: 4px 0 10px; text-align:center;">Karya</div>
+              <div class="karya-toggle" onclick="toggleKarya()"><span class="karya-arrow" id="karya-arrow">▶</span> Karya</div>
               <div id="karya-list"></div>
             </div>
           </div>
@@ -516,6 +553,14 @@ const CONFIG = {
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeLightbox();
   });
+
+  // karya collapse
+  function toggleKarya() {
+    const list = document.getElementById('karya-list');
+    const arrow = document.getElementById('karya-arrow');
+    list.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
 </script>
 
 </html>
