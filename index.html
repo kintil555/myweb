@@ -575,12 +575,26 @@ const CONFIG = {
     }, 900);
   });
 
-  // loading mask
-  window.addEventListener('load', function() {
+  // loading mask — hide saat DOM siap (DOMContentLoaded), bukan tunggu semua resource
+  // sama dengan pendekatan OreUI loading.js
+  function hide_mask() {
+    const mask = document.getElementById('loading_mask');
+    if (!mask || mask.style.display === 'none') return;
     setTimeout(function() {
-      const mask = document.getElementById('loading_mask');
-      if (mask) mask.style.display = 'none';
-    }, 600);
+      mask.style.opacity = '0';
+      setTimeout(function() { mask.style.display = 'none'; }, 800);
+    }, 500);
+  }
+
+  // failsafe: paksa hilang setelah 6 detik kalau DOMContentLoaded lambat
+  var _maskCount = 6;
+  var _maskInterval = setInterval(function() {
+    if (--_maskCount <= 0) { clearInterval(_maskInterval); hide_mask(); }
+  }, 1000);
+
+  document.addEventListener('DOMContentLoaded', function() {
+    clearInterval(_maskInterval);
+    hide_mask();
   });
 
   // lightbox
