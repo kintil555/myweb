@@ -341,7 +341,7 @@
 
 <!-- Medsos drawer -->
 <div id="medsos-drawer">
-  <div id="drawer-title" id="i18n-sosialMedia">Sosial Media</div>
+  <div id="drawer-title">Sosial Media</div>
   <div id="drawer-links">
     <!-- diisi dari config -->
   </div>
@@ -537,14 +537,6 @@
   el = document.getElementById('i18n-karya');  if (el) el.textContent = T.karya;
   el = document.getElementById('i18n-skill');  if (el) el.textContent = T.skill;
   el = document.getElementById('i18n-kontak'); if (el) el.textContent = T.kontak;
-
-  // Apply terjemahan ke elemen statis
-  document.getElementById('drawer-title').textContent   = T.sosialMedia;
-  document.getElementById('lightbox-loading').textContent = T.memuatGambar;
-  var el;
-  el = document.getElementById('i18n-karya');   if (el) el.textContent = T.karya;
-  el = document.getElementById('i18n-skill');   if (el) el.textContent = T.skill;
-  el = document.getElementById('i18n-kontak');  if (el) el.textContent = T.kontak;
 
   // karya
   const karyaList = document.getElementById('karya-list');
