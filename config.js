@@ -69,3 +69,116 @@ const CONFIG = {
   copyright: "2026 Voxel/Clion",
 
 };
+
+// =============================================
+//   TERJEMAHAN (i18n)
+//   Deteksi otomatis dari bahasa browser.
+//   Tambah bahasa baru dengan kode ISO 639-1.
+//   Kalau bahasa tidak ditemukan → pakai 'id'.
+// =============================================
+const TRANSLATIONS = {
+
+  id: {
+    karya:         "Karya",
+    skill:         "Skill",
+    kontak:        "Kontak",
+    sosialMedia:   "Sosial Media",
+    view:          "Lihat",
+    memuatGambar:  "Memuat gambar...",
+  },
+
+  en: {
+    karya:         "Works",
+    skill:         "Skills",
+    kontak:        "Contact",
+    sosialMedia:   "Social Media",
+    view:          "View",
+    memuatGambar:  "Loading image...",
+  },
+
+  ja: {
+    karya:         "作品",
+    skill:         "スキル",
+    kontak:        "連絡先",
+    sosialMedia:   "ソーシャルメディア",
+    view:          "見る",
+    memuatGambar:  "読み込み中...",
+  },
+
+  zh: {
+    karya:         "作品",
+    skill:         "技能",
+    kontak:        "联系方式",
+    sosialMedia:   "社交媒体",
+    view:          "查看",
+    memuatGambar:  "加载中...",
+  },
+
+  ko: {
+    karya:         "작품",
+    skill:         "스킬",
+    kontak:        "연락처",
+    sosialMedia:   "소셜 미디어",
+    view:          "보기",
+    memuatGambar:  "이미지 로딩 중...",
+  },
+
+  es: {
+    karya:         "Obras",
+    skill:         "Habilidades",
+    kontak:        "Contacto",
+    sosialMedia:   "Redes Sociales",
+    view:          "Ver",
+    memuatGambar:  "Cargando imagen...",
+  },
+
+  fr: {
+    karya:         "Œuvres",
+    skill:         "Compétences",
+    kontak:        "Contact",
+    sosialMedia:   "Réseaux Sociaux",
+    view:          "Voir",
+    memuatGambar:  "Chargement...",
+  },
+
+  de: {
+    karya:         "Werke",
+    skill:         "Fähigkeiten",
+    kontak:        "Kontakt",
+    sosialMedia:   "Soziale Medien",
+    view:          "Ansehen",
+    memuatGambar:  "Bild wird geladen...",
+  },
+
+  pt: {
+    karya:         "Obras",
+    skill:         "Habilidades",
+    kontak:        "Contato",
+    sosialMedia:   "Redes Sociais",
+    view:          "Ver",
+    memuatGambar:  "Carregando imagem...",
+  },
+
+  ru: {
+    karya:         "Работы",
+    skill:         "Навыки",
+    kontak:        "Контакты",
+    sosialMedia:   "Соцсети",
+    view:          "Смотреть",
+    memuatGambar:  "Загрузка...",
+  },
+
+  ar: {
+    karya:         "أعمال",
+    skill:         "مهارات",
+    kontak:        "تواصل",
+    sosialMedia:   "وسائل التواصل",
+    view:          "عرض",
+    memuatGambar:  "جارٍ التحميل...",
+  },
+
+};
+
+// Deteksi bahasa browser, fallback ke 'id'
+const _lang = (navigator.language || 'id').slice(0, 2).toLowerCase();
+const T = TRANSLATIONS[_lang] || TRANSLATIONS['id'];

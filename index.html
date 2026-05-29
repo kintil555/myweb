@@ -341,7 +341,7 @@
 
 <!-- Medsos drawer -->
 <div id="medsos-drawer">
-  <div id="drawer-title">Sosial Media</div>
+  <div id="drawer-title" id="i18n-sosialMedia">Sosial Media</div>
   <div id="drawer-links">
     <!-- diisi dari config -->
   </div>
@@ -394,7 +394,7 @@
           <!-- Karya -->
           <div class="main main_block">
             <div class="main_block_content" style="width:100%">
-              <div class="karya-toggle" onclick="playSound('click'); toggleKarya()"><img id="karya-arrow" class="karya-arrow" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAOUlEQVR4nGNgwAH+QwEueaIBIYOYKLaBUpfQzwW4XEKxCxgpcQlVXECWzVQNA7Jtpp8LBi4vEJudAe66Q8zZhNX8AAAAAElFTkSuQmCC" style="width:14px;height:14px;image-rendering:pixelated;flex-shrink:0"> Karya</div>
+              <div class="karya-toggle" onclick="playSound('click'); toggleKarya()"><img id="karya-arrow" class="karya-arrow" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAOUlEQVR4nGNgwAH+QwEueaIBIYOYKLaBUpfQzwW4XEKxCxgpcQlVXECWzVQNA7Jtpp8LBi4vEJudAe66Q8zZhNX8AAAAAElFTkSuQmCC" style="width:14px;height:14px;image-rendering:pixelated;flex-shrink:0"> <span id="i18n-karya">Karya</span></div>
               <div id="karya-list"></div>
             </div>
           </div>
@@ -402,7 +402,7 @@
           <!-- Skills -->
           <div class="main main_block">
             <div class="main_block_content" style="width:100%">
-              <div style="font-family:'Minecraft Seven',sans-serif; font-size:18px; margin: 4px 0 10px; text-align:center;">Skill</div>
+              <div style="font-family:'Minecraft Seven',sans-serif; font-size:18px; margin: 4px 0 10px; text-align:center;"><span id="i18n-skill">Skill</span></div>
               <div class="skills-row" id="skill-list"></div>
             </div>
           </div>
@@ -410,7 +410,7 @@
           <!-- Kontak -->
           <div class="main main_block">
             <div class="main_block_content" style="text-align:center; width:100%">
-              <div style="font-family:'Minecraft Seven',sans-serif; font-size:18px; margin: 4px 0 10px;">Kontak</div>
+              <div style="font-family:'Minecraft Seven',sans-serif; font-size:18px; margin: 4px 0 10px;"><span id="i18n-kontak">Kontak</span></div>
               <div class="btn_group">
                 <button class="btn normal_btn small_btn" onclick="playSoundType(this); window.open(CONFIG.github,'_blank')">GitHub</button>
               </div>
@@ -530,6 +530,22 @@
   document.getElementById('hero-bio').innerHTML = parseBioMarkdown(CONFIG.bio);
   document.getElementById('footer').innerHTML = '&copy; ' + CONFIG.copyright;
 
+  // Apply terjemahan ke elemen statis
+  document.getElementById('drawer-title').textContent     = T.sosialMedia;
+  document.getElementById('lightbox-loading').textContent = T.memuatGambar;
+  var el;
+  el = document.getElementById('i18n-karya');  if (el) el.textContent = T.karya;
+  el = document.getElementById('i18n-skill');  if (el) el.textContent = T.skill;
+  el = document.getElementById('i18n-kontak'); if (el) el.textContent = T.kontak;
+
+  // Apply terjemahan ke elemen statis
+  document.getElementById('drawer-title').textContent   = T.sosialMedia;
+  document.getElementById('lightbox-loading').textContent = T.memuatGambar;
+  var el;
+  el = document.getElementById('i18n-karya');   if (el) el.textContent = T.karya;
+  el = document.getElementById('i18n-skill');   if (el) el.textContent = T.skill;
+  el = document.getElementById('i18n-kontak');  if (el) el.textContent = T.kontak;
+
   // karya
   const karyaList = document.getElementById('karya-list');
   const karyaInner = document.createElement('div');
@@ -541,7 +557,7 @@
         '<div class="karya-img-wrap" onclick="playSound(&quot;button&quot;); openLightbox(&quot;' + k.hd + '&quot;, &quot;' + k.judul + '&quot;)">' +
           '<img src="' + k.preview + '" alt="' + k.judul + '">' +
           '<div class="karya-overlay">' +
-            '<button class="btn green_btn extra_small_btn">View</button>' +
+            '<button class="btn green_btn extra_small_btn">' + T.view + '</button>' +
           '</div>' +
         '</div>' +
         '<div class="karya-caption">' + k.judul + '</div>' +
