@@ -281,22 +281,25 @@
 
     .karya-arrow {
       display: inline-block;
-      font-size: 12px;
       transition: transform 0.25s ease;
-      color: #6CC349;
+      image-rendering: pixelated;
     }
 
     .karya-arrow.open { transform: rotate(90deg); }
 
     #karya-list {
-      overflow: hidden;
-      max-height: 0;
-      transition: max-height 0.4s ease, opacity 0.3s ease;
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s ease, opacity 0.3s ease;
       opacity: 0;
     }
 
+    #karya-list > .karya-inner {
+      overflow: hidden;
+    }
+
     #karya-list.open {
-      max-height: 9999px;
+      grid-template-rows: 1fr;
       opacity: 1;
     }
   </style>
@@ -357,7 +360,13 @@
           <!-- Karya -->
           <div class="main main_block">
             <div class="main_block_content" style="width:100%">
-              <div class="karya-toggle" onclick="toggleKarya()"><span class="karya-arrow" id="karya-arrow">▶</span> Karya</div>
+              <div class="karya-toggle" onclick="toggleKarya()"><svg id="karya-arrow" class="karya-arrow" width="12" height="12" viewBox="0 0 12 12" style="fill:#6CC349;flex-shrink:0" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="4" width="2" height="4"/>
+  <rect x="2" y="2" width="2" height="8"/>
+  <rect x="4" y="0" width="2" height="12"/>
+  <rect x="6" y="2" width="2" height="8"/>
+  <rect x="8" y="4" width="2" height="4"/>
+</svg> Karya</div>
               <div id="karya-list"></div>
             </div>
           </div>
@@ -453,8 +462,11 @@ const CONFIG = {
 
   // karya
   const karyaList = document.getElementById('karya-list');
+  const karyaInner = document.createElement('div');
+  karyaInner.className = 'karya-inner';
+  karyaList.appendChild(karyaInner);
   CONFIG.karya.forEach(function(k, i) {
-    karyaList.innerHTML +=
+    karyaInner.innerHTML +=
       '<div class="karya-item">' +
         '<div class="karya-img-wrap" onclick="openLightbox(\'' + k.hd + '\', \'' + k.judul + '\')">' +
           '<img src="' + k.preview + '" alt="' + k.judul + '">' +
@@ -496,6 +508,16 @@ const CONFIG = {
     document.getElementById('drawer-overlay').classList.remove('open');
   }
 
+  // hover via JS (bukan CSS hover biar ga bug pas scroll)
+  document.addEventListener('mouseover', function(e) {
+    var wrap = e.target.closest('.karya-img-wrap');
+    if (wrap) wrap.classList.add('hovered');
+  });
+  document.addEventListener('mouseout', function(e) {
+    var wrap = e.target.closest('.karya-img-wrap');
+    if (wrap) wrap.classList.remove('hovered');
+  });
+
   // touch support karya
   document.addEventListener('touchstart', function(e) {
     var wrap = e.target.closest('.karya-img-wrap');
@@ -505,10 +527,10 @@ const CONFIG = {
 
   document.addEventListener('touchend', function(e) {
     setTimeout(function() {
-      if (!e.target.closest('.karya-overlay a')) {
+      if (!e.target.closest('.karya-overlay')) {
         document.querySelectorAll('.karya-img-wrap').forEach(el => el.classList.remove('pressed'));
       }
-    }, 800);
+    }, 900);
   });
 
   // loading mask
