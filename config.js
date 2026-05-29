@@ -1,30 +1,45 @@
 // =============================================
 //   CONFIG - edit di sini tanpa buka index.html
 // =============================================
+//
+//   ╔══════════════════════════════════════╗
+//   ║        PANDUAN MARKDOWN BIO          ║
+//   ╠══════════════════════════════════════╣
+//   ║                                      ║
+//   ║  HEADING                             ║
+//   ║  # Judul Besar                       ║
+//   ║  ## Judul Sedang                     ║
+//   ║  ### Judul Kecil                     ║
+//   ║                                      ║
+//   ║  TEKS                                ║
+//   ║  **teks**     → tebal                ║
+//   ║  \n           → baris baru           ║
+//   ║                                      ║
+//   ║  LINK                                ║
+//   ║  [teks](https://url.com)             ║
+//   ║  → teks biru yang bisa diklik        ║
+//   ║                                      ║
+//   ║  GAMBAR LOKAL (dari folder /media/)  ║
+//   ║  @namafile.png                       ║
+//   ║  → 1 gambar di bawah teks            ║
+//   ║                                      ║
+//   ║  GAMBAR INTERNET                     ║
+//   ║  ![alt](https://url/gambar.png)      ║
+//   ║  → 1 gambar dari URL                 ║
+//   ║                                      ║
+//   ║  GAMBAR SEJAJAR (side-by-side)       ║
+//   ║  @[foto1.png, foto2.png]             ║
+//   ║  @[https://url1, https://url2]       ║
+//   ║  @[foto.png, https://url]  ← campur  ║
+//   ║  → taruh di baris tersendiri!        ║
+//   ║                                      ║
+//   ╚══════════════════════════════════════╝
 
 const CONFIG = {
 
   // ── INFO UTAMA ────────────────────────────
   nama: "Voxel / Clion",
 
-  // BIO - support markdown mini:
-  //
-  //   # Judul Besar
-  //   ## Judul Sedang
-  //   ### Judul Kecil
-  //
-  //   [teks link](https://url.com)       → link biru
-  //   **teks**                           → tebal
-  //
-  //   @foto.png                          → gambar dari folder /media/
-  //   ![alt](https://url/gambar.png)     → gambar dari internet
-  //
-  //   @[foto1.png, foto2.png]            → 2 gambar sejajar (lokal)
-  //   @[https://url1, https://url2]      → 2 gambar sejajar (internet)
-  //   @[foto.png, https://url]           → boleh campur
-  //
-  //   \n = baris baru (di dalam string pakai \\n)
-  //
   bio: "# Apa Ini?\nhalo, ini portfolioku, gw sih masih belajar - belajar gitu. Jadi gimn yah pokoknya kadang gw bikin thumbnail klo lagi niat aja, gw belum buka komis, gamabr gambar yg ku buat cuma buat latihan atau ya sekedar gabut.\nbtw gw dulu belajar bikin thumbnail minecarft gitu dari [Sparkskye](https://www.youtube.com/@sparkskye) dan [Notsparkskye](https://www.youtube.com/@notsparkskye)\n@[https://yt3.googleusercontent.com/ihLSmDd_g9QbIjsMA0Gkcs3JBQhj32vUIQKOuSljSVbgfRiyGtWZJHqkvXZfi-epotGY1087fQ=s160-c-k-c0x00ffffff-no-rj, https://yt3.googleusercontent.com/vb4k6jpf9XrTTwq2geXRVHtnOt8OQvSMcLGJ-p1sEr3ZV0aOCY-K53JVSRqrLEIaq-cGFCpaiQ=s160-c-k-c0x00ffffff-no-rj]",
 
   // ── MEDSOS ───────────────────────────────
