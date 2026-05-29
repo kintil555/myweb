@@ -513,7 +513,7 @@ const CONFIG = {
       var url = isExternal ? src : ('media/' + src);
       var fname = src.split('/').pop();
       return '<img src="' + url + '" alt="' + fname + '" '
-        + 'style="max-width:100%;flex:1;min-width:0;border:2px solid #5A5B5C;border-bottom-color:#333334;image-rendering:pixelated;" '
+        + 'style="max-width:100%;max-height:200px;object-fit:contain;flex:1;min-width:0;border:2px solid #5A5B5C;border-bottom-color:#333334;image-rendering:pixelated;" '
         + 'onerror="this.style.outline=\'2px solid #C33636\';this.alt=\'\u26a0 ' + fname + '\'">';
     }
 
@@ -530,7 +530,18 @@ const CONFIG = {
         // Gambar side-by-side: @[img1.png, img2.png] atau @[url1, url2]
         var sbsMatch = line.match(/^@\[(.+)\]$/);
         if (sbsMatch) {
-          var parts = sbsMatch[1].split(',').map(function(s) { return s.trim(); });
+          // Split by ' , ' atau ',' tapi jaga URL — pisah by spasi setelah koma
+          var raw = sbsMatch[1];
+          var parts = [];
+          var buf = '', depth = 0;
+          for (var ci = 0; ci < raw.length; ci++) {
+            var ch = raw[ci];
+            if (ch === '(' ) depth++;
+            if (ch === ')' ) depth--;
+            if (ch === ',' && depth === 0) { parts.push(buf.trim()); buf = ''; }
+            else buf += ch;
+          }
+          if (buf.trim()) parts.push(buf.trim());
           var imgs = parts.map(function(p) {
             return makeImg(p, /^https?:\/\//.test(p));
           }).join('');
