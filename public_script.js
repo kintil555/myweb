@@ -149,7 +149,7 @@ window.onload = async function () {
     if ('caches' in window) {
         try {
             const cache = await caches.open(cacheName);
-            await cache.addAll([soundPaths['click'], soundPaths['button'], soundPaths['open'], soundPaths['close']]);
+            await cache.add(soundPaths['click']);
             logManager.log("音效文件已缓存!");
         } catch (error) {
             logManager.log("音效文件缓存失败: " + error, 'error');
