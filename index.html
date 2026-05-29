@@ -40,7 +40,8 @@
       pointer-events: none;
     }
 
-    .karya-overlay a {
+    .karya-overlay a,
+    .karya-overlay button {
       opacity: 0;
       transform: scale(0.85);
       transition: opacity 0.2s ease, transform 0.2s ease;
@@ -58,7 +59,8 @@
       background: rgba(0,0,0,0.3);
     }
 
-    .karya-img-wrap:hover .karya-overlay a {
+    .karya-img-wrap:hover .karya-overlay a,
+    .karya-img-wrap:hover .karya-overlay button {
       opacity: 1;
       transform: scale(1);
     }
@@ -72,7 +74,8 @@
       background: rgba(0,0,0,0.3);
     }
 
-    .karya-img-wrap.pressed .karya-overlay a {
+    .karya-img-wrap.pressed .karya-overlay a,
+    .karya-img-wrap.pressed .karya-overlay button {
       opacity: 1;
       transform: scale(1);
     }
