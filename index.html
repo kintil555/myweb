@@ -217,16 +217,11 @@
       width: 42px;
     }
 
-    #menu-btn span {
-      align-self: center !important;
+    #menu-btn .menu-line {
       background: #333 !important;
       border: none !important;
-      box-sizing: content-box !important;
       display: block !important;
-      flex-shrink: 0 !important;
-      height: 2px !important;
-      min-height: 0 !important;
-      padding: 0 !important;
+      height: 3px !important;
       width: 20px !important;
     }
 
@@ -357,7 +352,7 @@
     <!-- hamburger kiri -->
     <div class="header_item header_item_left" onclick="playSound('open'); openDrawer()">
       <button id="menu-btn">
-        <span></span><span></span><span></span>
+        <div class="menu-line"></div><div class="menu-line"></div><div class="menu-line"></div>
       </button>
     </div>
 
