@@ -506,6 +506,17 @@ const CONFIG = {
 
   // Mini markdown parser buat bio: heading #/##/###, link [teks](url), newline
   function parseBioMarkdown(text) {
+    // Fix literal \n yang ditulis di string config
+    text = text.replace(/\\n/g, '\n');
+
+    function makeImg(src, isExternal) {
+      var url = isExternal ? src : ('media/' + src);
+      var fname = src.split('/').pop();
+      return '<img src="' + url + '" alt="' + fname + '" '
+        + 'style="max-width:100%;flex:1;min-width:0;border:2px solid #5A5B5C;border-bottom-color:#333334;image-rendering:pixelated;" '
+        + 'onerror="this.style.outline=\'2px solid #C33636\';this.alt=\'\u26a0 ' + fname + '\'">';
+    }
+
     return text
       .split('\n')
       .map(function(line) {
@@ -515,17 +526,26 @@ const CONFIG = {
         if (/^## (.+)/.test(line)) return '<div style="font-family:\'Minecraft Seven\',sans-serif;font-size:16px;color:#fff;margin:8px 0 2px;">' + line.replace(/^## /, '') + '</div>';
         // Heading #
         if (/^# (.+)/.test(line)) return '<div style="font-family:\'Minecraft Seven\',sans-serif;font-size:20px;color:#fff;margin:10px 0 4px;">' + line.replace(/^# /, '') + '</div>';
-        // Embed gambar lokal @nama.ext → dari folder /media/
+
+        // Gambar side-by-side: @[img1.png, img2.png] atau @[url1, url2]
+        var sbsMatch = line.match(/^@\[(.+)\]$/);
+        if (sbsMatch) {
+          var parts = sbsMatch[1].split(',').map(function(s) { return s.trim(); });
+          var imgs = parts.map(function(p) {
+            return makeImg(p, /^https?:\/\//.test(p));
+          }).join('');
+          return '<div style="display:flex;gap:6px;margin:8px 0;justify-content:center;">' + imgs + '</div>';
+        }
+
+        // Gambar lokal single: @nama.ext
         line = line.replace(/@([\w.\-]+\.(png|jpg|jpeg|gif|webp))/gi, function(_, fname) {
-          return '<div style="margin:8px 0;">'
-            + '<img src="media/' + fname + '" alt="' + fname + '" '
-            + 'style="max-width:100%;border:2px solid #5A5B5C;border-bottom-color:#333334;image-rendering:pixelated;display:block;margin:0 auto;" '
-            + 'onerror="this.outerHTML=\'<span style=&quot;color:#C33636;font-size:12px;&quot;>⚠ gambar tidak ditemukan: ' + fname + '</span>\'">'
-            + '</div>';
+          return '<div style="margin:8px 0;display:flex;justify-content:center;">' + makeImg(fname, false) + '</div>';
         });
-        // Embed gambar eksternal ![alt](url)
-        line = line.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<div style="margin:8px 0;"><img src="$2" alt="$1" style="max-width:100%;border:2px solid #5A5B5C;border-bottom-color:#333334;display:block;margin:0 auto;"></div>');
-        // Inline link [teks](url)
+        // Gambar eksternal: ![alt](url)
+        line = line.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, function(_, alt, url) {
+          return '<div style="margin:8px 0;display:flex;justify-content:center;">' + makeImg(url, true) + '</div>';
+        });
+        // Link [teks](url)
         line = line.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" onclick="playSound(\'click\')" style="color:#5B9BD5;text-decoration:underline;text-underline-offset:2px;">$1</a>');
         // Bold **teks**
         line = line.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
