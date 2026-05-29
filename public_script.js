@@ -143,19 +143,8 @@ window.addEventListener('load', function () {
     logManager.log("页面加载耗时: " + loadTime + "ms");
 });
 
-// 页面加载时缓存音效文件
+// audio tidak di-preload saat load — diambil langsung saat dibutuhkan
 const cacheName = 'audio-cache';
-window.onload = async function () {
-    if ('caches' in window) {
-        try {
-            const cache = await caches.open(cacheName);
-            await cache.add(soundPaths['click']);
-            logManager.log("音效文件已缓存!");
-        } catch (error) {
-            logManager.log("音效文件缓存失败: " + error, 'error');
-        }
-    }
-};
 
 async function getCachedAudio(filePath) {
     if ('caches' in window) {
