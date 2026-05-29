@@ -515,6 +515,16 @@ const CONFIG = {
         if (/^## (.+)/.test(line)) return '<div style="font-family:\'Minecraft Seven\',sans-serif;font-size:16px;color:#fff;margin:8px 0 2px;">' + line.replace(/^## /, '') + '</div>';
         // Heading #
         if (/^# (.+)/.test(line)) return '<div style="font-family:\'Minecraft Seven\',sans-serif;font-size:20px;color:#fff;margin:10px 0 4px;">' + line.replace(/^# /, '') + '</div>';
+        // Embed gambar lokal @nama.ext → dari folder /media/
+        line = line.replace(/@([\w.\-]+\.(png|jpg|jpeg|gif|webp))/gi, function(_, fname) {
+          return '<div style="margin:8px 0;">'
+            + '<img src="media/' + fname + '" alt="' + fname + '" '
+            + 'style="max-width:100%;border:2px solid #5A5B5C;border-bottom-color:#333334;image-rendering:pixelated;display:block;margin:0 auto;" '
+            + 'onerror="this.outerHTML=\'<span style=&quot;color:#C33636;font-size:12px;&quot;>⚠ gambar tidak ditemukan: ' + fname + '</span>\'">'
+            + '</div>';
+        });
+        // Embed gambar eksternal ![alt](url)
+        line = line.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<div style="margin:8px 0;"><img src="$2" alt="$1" style="max-width:100%;border:2px solid #5A5B5C;border-bottom-color:#333334;display:block;margin:0 auto;"></div>');
         // Inline link [teks](url)
         line = line.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" onclick="playSound(\'click\')" style="color:#5B9BD5;text-decoration:underline;text-underline-offset:2px;">$1</a>');
         // Bold **teks**
