@@ -56,6 +56,7 @@ const CONFIG = {
     { preview: "img/gk_tw_preview.jpg",     hd: "img/gk_tw_hd.jpg",     judul: "Untitled" },
     { preview: "img/edited_preview.jpg",    hd: "img/edited_hd.jpg",     judul: "Gak tau sih" },
     { preview: "img/backrooms_preview.jpg", hd: "img/backrooms_hd.jpg",  judul: "Endo Backrooms" },
+    { preview: "img/hasil_hitlarp.png", hd: "img/hasil_hitlarp.png",  judul: "Auron Matilda" },
   ],
 
   // ── SKILL ────────────────────────────────
