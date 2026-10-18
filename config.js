@@ -53,6 +53,7 @@ const CONFIG = {
 
   // ── KARYA ────────────────────────────────
   karya: [
+    { preview: "img/flarial.png",     hd: "img/flarial.png",     judul: "Flarial Replay Mod" },
     { preview: "img/gk_tw_preview.jpg",     hd: "img/gk_tw_hd.jpg",     judul: "Untitled" },
     { preview: "img/edo.png",     hd: "img/edo.png",     judul: "Endo sotgan 2jt" },
     { preview: "img/edited_preview.jpg",    hd: "img/edited_hd.jpg",     judul: "Gak tau sih" },
