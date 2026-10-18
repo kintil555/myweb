@@ -81,11 +81,6 @@ const CONFIG = {
       icon: "https://cdn.discordapp.com/icons/901068441581146123/1693a5c3926d5ffd0e35081c97a96c32.webp?size=100&quality=lossless"
     },
     {
-      name: "Croco Team",
-      url: "https://discord.gg/UueVaUqt3T",
-      icon: "https://cdn.discordapp.com/icons/1153349778638381066/27dab69a8c57263146b4bd2c1af37d1b.webp?size=100&quality=lossless"
-    },
-    {
       name: "Creator Coaster",
       url: "https://discord.gg/mwz89rSW",
       icon: "https://cdn.discordapp.com/icons/1075932452842909806/a_66a39576bc63a3f510a29cd884fffacb.webp?size=100&quality=lossless"
