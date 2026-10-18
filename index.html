@@ -94,6 +94,24 @@
       margin: 6px auto;
     }
 
+    /* Desktop: 3 gambar per baris, berurutan kiri ke kanan */
+    @media (min-width: 900px) {
+      #karya-list > .karya-inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .karya-item {
+        width: calc(33.333% - 16px);
+        max-width: none;
+        margin: 8px;
+      }
+    }
+
     .medsos-btn {
       display: flex;
       align-items: center;
