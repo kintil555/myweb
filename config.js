@@ -43,7 +43,7 @@ const CONFIG = {
   // ── BIO (dua bahasa, lu isi sendiri teksnya) ──
   bio_id: "# Apa Ini?\nhalo, ini portfolioku, gw sih masih belajar - belajar gitu. Jadi gimn yah pokoknya kadang gw bikin thumbnail klo lagi niat aja, gw belum buka komis, gamabr gambar yg ku buat cuma buat latihan atau ya sekedar gabut.\nbtw gw dulu belajar bikin thumbnail minecarft gitu dari \n[Sparkskye](https://www.youtube.com/@sparkskye) dan [Notsparkskye](https://www.youtube.com/@notsparkskye) \n@[https://yt3.googleusercontent.com/ihLSmDd_g9QbIjsMA0Gkcs3JBQhj32vUIQKOuSljSVbgfRiyGtWZJHqkvXZfi-epotGY1087fQ=s160-c-k-c0x00ffffff-no-rj, https://yt3.googleusercontent.com/vb4k6jpf9XrTTwq2geXRVHtnOt8OQvSMcLGJ-p1sEr3ZV0aOCY-K53JVSRqrLEIaq-cGFCpaiQ=s160-c-k-c0x00ffffff-no-rj]",
 
-  bio_en: "# What is This?\nhey, this is my portfolio. I'm still learning things.\nI sometimes make thumbnails when I feel like it. No commissions yet — stuff I make is just for practice or when I'm bored.\nI learned Minecraft thumbnail-making from\n[Sparkskye](https://www.youtube.com/@sparkskye) and [Notsparkskye](https://www.youtube.com/@notsparkskye)\n@[https://yt3.googleusercontent.com/ihLSmDd_g9QbIjsMA0Gkcs3JBQhj32vUIQKOuSljSVbgfRiyGtWZJHqkvXZfi-epotGY1087fQ=s160-c-k-c0x00ffffff-no-rj, https://yt3.googleusercontent.com/vb4k6jpf9XrTTwq2geXRVHtnOt8OQvSMcLGJ-p1sEr3ZV0aOCY-K53JVSRqrLEIaq-cGFCpaiQ=s160-c-k-c0x00ffffff-no-rj]",
+  bio_en: "# What is This?\nhey, this is my portfolio. I'm still learning things.\nI sometimes make thumbnails when I feel like it. No commissions yet, stuff I make is just for practice or when I'm bored.\nI learned Minecraft thumbnail-making from\n[Sparkskye](https://www.youtube.com/@sparkskye) and [Notsparkskye](https://www.youtube.com/@notsparkskye)\n@[https://yt3.googleusercontent.com/ihLSmDd_g9QbIjsMA0Gkcs3JBQhj32vUIQKOuSljSVbgfRiyGtWZJHqkvXZfi-epotGY1087fQ=s160-c-k-c0x00ffffff-no-rj, https://yt3.googleusercontent.com/vb4k6jpf9XrTTwq2geXRVHtnOt8OQvSMcLGJ-p1sEr3ZV0aOCY-K53JVSRqrLEIaq-cGFCpaiQ=s160-c-k-c0x00ffffff-no-rj]",
 
   // ── MEDSOS ───────────────────────────────
   medsos: [
@@ -89,6 +89,11 @@ const CONFIG = {
       name: "MineImator",
       url: "https://discord.com/invite/GxFp6xv",
       icon: "https://cdn.discordapp.com/icons/272759689589293057/7091e8403dc58fdeef7471badabbb17b.webp?size=100&quality=lossless"
+    },
+    {
+      name: "Mura's Airship
+      url: "https://discord.gg/6sGyZ6yFnj"
+      icon: "https://cdn.discordapp.com/icons/1441051525332865107/5cd8d4a488779e53d26fdc18787b7050.webp?size=100&quality=lossless"
     },
   ],
 
