@@ -91,8 +91,8 @@ const CONFIG = {
       icon: "https://cdn.discordapp.com/icons/272759689589293057/7091e8403dc58fdeef7471badabbb17b.webp?size=100&quality=lossless"
     },
     {
-      name: "Mura's Airship
-      url: "https://discord.gg/6sGyZ6yFnj"
+      name: "Mura's Airship",
+      url: "https://discord.gg/6sGyZ6yFnj",
       icon: "https://cdn.discordapp.com/icons/1441051525332865107/5cd8d4a488779e53d26fdc18787b7050.webp?size=100&quality=lossless"
     },
   ],
